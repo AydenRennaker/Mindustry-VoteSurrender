@@ -18,7 +18,7 @@ public class GHVoteSurrender extends Plugin{
 
     private VoteSession voting = null;
     private long cooldown = -1;
-    private String cmd = "ghvs";
+    private String cmd = "surrender";
     private String description = "Vote for Surrender.";
     private static int VOTE_ID = -1;
     private boolean gameOver = false;
@@ -69,7 +69,7 @@ public class GHVoteSurrender extends Plugin{
                     voting.vote(null, args[0].equals("y"));
                     break;
                 case "help":
-                    Log.info("GHVoteSurrender: \n" +
+                    Log.info("VoteSurrender: \n" +
                             "'" + cmd + " mode on/off' to Turn On/Off the Plugin.\n" +
                             "'" + cmd + " y/n' to (Host a )Vote.\n" +
                             "'" + cmd + " vr' to Set/Get the Vote Requirement(in '%' form).\n" +
@@ -78,7 +78,7 @@ public class GHVoteSurrender extends Plugin{
                             "A Vote is Passed When There are Over " + votesRequired() + "%.");
                     break;
                 default:
-                    Log.info("GH Vote Surrender: Argument not Found.");
+                    Log.info("Vote Surrender: Argument not Found.");
                     break;
             }
         });
@@ -120,7 +120,7 @@ public class GHVoteSurrender extends Plugin{
                         voting.vote(player, args[0].equals("y"));
                     break;
                 case "help":
-                    player.sendMessage("[lightgray][orange]GHVoteSurrender[]: \n" +
+                    player.sendMessage("[lightgray][orange]VoteSurrender[]: \n" +
                             (player.isAdmin ? "'[orange]/" + cmd + " mode on/off'[] to Turn On/Off the Plugin.\n" : "") +
                             "[orange]'/" + cmd + " [green]y[]/[red]n[]'[] to (Host a )Vote.\n" +
                             "[orange]'/" + cmd + " help'[] to Show This Message Again.\n" +
@@ -139,7 +139,7 @@ public class GHVoteSurrender extends Plugin{
     }
     private void mode(boolean set){
         Core.settings.put("ghvotesurrendermode", set);
-        say("[lightgray][orange]GH Vote Surrender[]: " + (mode() ? "[green]Activated" : "[gray]Deactivated") + "[].");
+        say("[lightgray][orange]Vote Surrender[]: " + (mode() ? "[green]Activated" : "[gray]Deactivated") + "[].");
         Log.info("GH Vote Surrender: " + (mode() ? "Activated" : "Deactivated"));
     }
     private boolean mode(){
